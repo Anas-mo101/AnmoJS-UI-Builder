@@ -2,10 +2,12 @@ import DrawingBoard from "./components/DrawingBoard.js";
 import Sidebar from "./components/Sidebar.js"
 import Toolbar from "./components/Toolbar.js"
 
+// import _export from "./export.js";
 
 Anmo.setBreakPoints({mobile: 450, tablet: 850});
 Anmo.setMainContainer("body");
 
+// Anmo.initApp(_export);
 
 Anmo.initApp(class extends Anmo.AbstractView { 
     constructor() {

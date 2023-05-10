@@ -95,6 +95,11 @@ export default class extends Anmo.AbstractView {
                 const comp = Anmo.BuildElement({
                     ...element,
                     content: compcontent,
+                    onTap: (e) => {
+                        e.stopPropagation();
+                        console.log('test', element.id)
+                        document.dispatchEvent(new CustomEvent('showComponentToolSet', {detail: { id: element.id }} ));
+                    },
                     onContextMenu: async (e) => {
                         e.preventDefault();
                         e.stopPropagation();
@@ -109,7 +114,6 @@ export default class extends Anmo.AbstractView {
                 });
     
                 if(true){ // for componets that can have children
-                    // comp.addEventListener('dragover', (ev) => ev.preventDefault());
                     comp.addEventListener('drop', (ev) => this.handleDrop(ev, element.id) );
                 }
     
@@ -125,6 +129,15 @@ export default class extends Anmo.AbstractView {
             const comp = Anmo.BuildElement({
                 ...drawing,
                 content: compcontent,
+                onTap: (e) => {
+                    e.stopPropagation();
+                    console.log('test', drawing.id)
+                    document.dispatchEvent(new CustomEvent('showComponentToolSet', { 
+                        detail: { 
+                            id: drawing.id
+                        }}
+                    ));
+                },
                 onContextMenu: async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -160,8 +173,11 @@ export default class extends Anmo.AbstractView {
                     width: 'inherit',
                     border: '2px solid #bfbfbf',
                     padding: '10px',
-                    'overflow-y': 'auto'
+                    'overflow-y': 'auto',
                 },
+                attributes: [
+                    {attribute: 'class', value: this.drawing.length > 0 ? '' : 'drawing-panel-cover' }
+                ],
                 content: [
                     ...this.draw(this.drawing)
                 ]

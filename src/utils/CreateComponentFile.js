@@ -5,20 +5,19 @@ const writeComponents = (data) => {
     let componentContent = '';
     if(Array.isArray(data)){
         data.forEach(element => {
-            if (element?.content != null) {
-                let innerContent = writeComponents(element?.content);
-                element.content = innerContent;
-            }
-            const comp = `Anmo.BuildElement(${JSON.stringify(element)}),`
+            
+            let innerContent = element?.content ? `,content: ${writeComponents(element?.content)}` : '';
+            delete element.content;
+
+            const comp = `Anmo.BuildElement(${JSON.stringify(element).slice(0, -1)} ${innerContent}}),`
             componentContent += comp;
         });
         return `[${componentContent}]`;
     } else if (typeof data === 'object' ) {
-        if (data?.content != null) {
-            let innerContent = writeComponents(data?.content);
-            data.content = innerContent;
-        }
-        componentContent = `Anmo.BuildElement(${JSON.stringify(data)}),`
+        let innerContent = data?.content ? `,content: ${writeComponents(data?.content)}` : '';
+        delete data.content;
+
+        componentContent = `Anmo.BuildElement(${JSON.stringify(data).slice(0, -1)} ${innerContent}}),`
         return componentContent;
     }else if (typeof data === 'string' || data instanceof String){
         componentContent = data;

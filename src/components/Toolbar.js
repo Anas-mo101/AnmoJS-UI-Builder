@@ -34,10 +34,12 @@ export default class extends Anmo.AbstractView {
                         style: {
                             width: '40px',
                             height: '40px',
-                            border: '1px black solid',
+                            border: 'none',
                             display: 'flex',
                             'align-items': 'center',
-                            'justify-content': 'center'
+                            'justify-content': 'center',
+                            background: 'transparent',
+                            cursor: 'pointer'
                         },
                         content: Anmo.BuildElement({
                             tag: "i",

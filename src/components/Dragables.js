@@ -26,7 +26,8 @@ export default class extends Anmo.AbstractView {
                     'justify-content': 'center',
                     gap: '10px',
                     'align-items': 'center',
-                    'flex-direction': 'column'
+                    'flex-direction': 'column',
+                    'border-radius': '5px',
                 },
                 content: [
                     Anmo.BuildElement({

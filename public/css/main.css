@@ -6,10 +6,18 @@ body {
 }
 
 .hovercard:hover {
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     transition: 300ms;
+}
+
+.drawing-panel-cover{
+    background-position: center;
+    background-image: url('http://127.0.0.1:5500/public/media/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.2;
 }
 
 .edit-container-drawing {
