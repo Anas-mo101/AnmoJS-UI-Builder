@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Column",
+        "data": { 
+            "tag": "div",
+            "attributes": [
+                { "attribute": "draggable", "value": "true" },
+                { "attribute": "class", "value": "edit-container-drawing"}
+            ],
+            "style":  {
+                "height": "auto",
+                "padding": "20px 10px"
+            }
+        }
+    },
+    {
+        "title": "Row",
+        "data": { 
+            "tag": "div",
+            "attributes": [
+                { "attribute": "draggable", "value": "true" },
+                { "attribute": "class", "value": "edit-container-drawing"}
+            ],
+            "style":  {
+                "height": "auto",
+                "padding": "20px 10px",
+                "display": "flex"
+            }
+        }
+    }
+]

@@ -1,0 +1,38 @@
+body {
+    position: absolute;
+    margin: 0;
+    height: 93%;
+    width: 100%;
+}
+
+.hovercard:hover {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    transition: 300ms;
+}
+
+.edit-container-drawing {
+    border: 2px grey dotted;
+}
+
+.edit-container-drawing:hover:not(:has(.edit-container-drawing:hover)) {
+    border: 2px grey solid;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.context-button:hover {
+    background-color: #c7c7c7 !important;
+    border: 1px solid black !important;
+}
