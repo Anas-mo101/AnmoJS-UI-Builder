@@ -48,7 +48,7 @@ export default class extends Anmo.AbstractView {
                     border: '2px solid #bfbfbf',
                     'overflow-y': 'auto',
                     'overflow-x': 'hidden',
-                    padding: '5px 5px'
+                    // 
                 },
                 content: [
                     Anmo.BuildElement ({
@@ -58,7 +58,8 @@ export default class extends Anmo.AbstractView {
                             'min-width': '220px',
                             display: 'flex',
                             gap: '10px',
-                            margin: '5px 0px'
+                            padding: '10px 5px',
+                            'background-color': 'black'
                         },
                         content: [
                             Anmo.BuildElement({
@@ -68,21 +69,20 @@ export default class extends Anmo.AbstractView {
                                     this.update();
                                 },
                                 style: {
-                                    width: '20px',
-                                    height: '20px',
-                                    // border: 'none',
+                                    width: '25px',
+                                    height: '25px',
+                                    'border-radius': '10px',
                                     display: 'flex',
                                     'align-items': 'center',
                                     'justify-content': 'center',
-                                    background: 'transparent',
+                                    background: 'white',
                                     cursor: 'pointer'
                                 },
                                 content: 'x'
                             }),
                         ]
                     }),
-                    this.panelTitle,
-                    new PanelSidebar().getComponentHTML()
+                    new PanelSidebar(this.panelTitle).getComponentHTML()
                 ]
             });
 

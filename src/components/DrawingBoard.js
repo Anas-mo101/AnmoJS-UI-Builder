@@ -15,6 +15,13 @@ export default class extends Anmo.AbstractView {
                 value: this.drawing
             });
         });
+
+        document.addEventListener("updateCSSDrawingPanel", (e) => {
+            const {id, prop, value } = e.detail;
+            this.drawing = this.bfsSearchAndUpdateCSS(this.drawing, id, prop, value);
+            setTimeout(() => this.init(), 500);
+            this.update();
+        });
     }
 
 
@@ -27,6 +34,30 @@ export default class extends Anmo.AbstractView {
 
         board.addEventListener('dragover', (ev) => ev.preventDefault());
         board.addEventListener('drop', async (ev) => this.handleDrop(ev));
+    }
+
+    bfsSearchAndUpdateCSS(arr, id, prop, value) {
+        let queue = [...arr];
+        
+        while (queue.length) {
+            const curr = queue.shift();
+            if (curr.id === id) {
+                curr.style[prop] = value;
+                return arr;
+            }
+            if (typeof curr === 'object' && curr !== null) {
+                if(curr?.content != null){
+                    if(Array.isArray(curr.content)){
+                        queue.push(...curr.content)
+                    }else{
+                        queue.push(curr.content);
+                    }
+                }
+            }
+        }
+        
+        // If the id wasn't found, return the original array.
+        return arr;
     }
 
 
