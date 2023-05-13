@@ -208,9 +208,7 @@ export default class extends Anmo.AbstractView {
                 onTap: (e) => {
                     e.stopPropagation();
                     document.dispatchEvent(new CustomEvent('showComponentToolSet', { 
-                        detail: { 
-                            id: drawing.id
-                        }}
+                        detail: { id: drawing.id }}
                     ));
                 },
                 onContextMenu: async (e) => {

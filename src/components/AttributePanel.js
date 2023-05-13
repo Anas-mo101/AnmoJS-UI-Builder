@@ -6,12 +6,33 @@ export default class extends Anmo.AbstractView {
         super();
 
         this.eid = eid;
+        this.search = false;
+        this.searchKey = "";
+        this.searchResult = [];
     }
 
     updateAttsDrawingPanel(value,prop){
         document.dispatchEvent(
             new CustomEvent('updateAttsDrawingPanel', {detail: { prop, value, id: this.eid }} )
         );
+    }
+
+    searchProp(prop){
+        if(prop == ""){
+            this.search = false;
+            this.searchResult = [];
+            this.update();
+            return;
+        }
+
+
+        this.searchResult = attributesProperties.filter((result) => {
+            if(result.name.includes(prop)){
+                return true;
+            }
+            return false;
+        });
+        this.update();
     }
 
 
@@ -78,6 +99,9 @@ export default class extends Anmo.AbstractView {
    
     getComponentHTML() {
         try {
+            const show = this.search ? this.searchResult : attributesProperties;
+            const showElement = show.map((property) => this.drawCssPropertyControl(property)) 
+
             return Anmo.BuildElement ({
                 tag: 'div',
                 id: this.id,
@@ -88,9 +112,38 @@ export default class extends Anmo.AbstractView {
                     padding: '10px 5px'
                 },
                 content: [
-                    ...attributesProperties.map((property) => {
-                        return this.drawCssPropertyControl(property)
-                    }) 
+                    Anmo.BuildElement({
+                        tag: 'div',
+                        style: {
+                            display: 'flex',
+                        },
+                        content: [
+                            Anmo.BuildElement ({
+                                tag: 'input',
+                                onChange: (e) => {
+                                    this.search = true;
+                                    this.searchKey = e.target.value;
+                                    this.searchProp(e.target.value)
+                                },
+                                style: {
+                                    width: '100%',
+                                },
+                                attributes: [
+                                    {attribute: 'placeholder', value: 'Search' },
+                                    {attribute: 'type', value: 'text' },
+                                ],
+                            }),
+                            Anmo.BuildElement ({
+                                tag: 'button',
+                                onTap: (e) => {
+                                    this.search = false;
+                                    this.update();
+                                },
+                                content: 'x'
+                            }),
+                        ]
+                    }),
+                    ...showElement 
                 ]
             });
         } catch (error) {

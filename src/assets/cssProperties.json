@@ -1,293 +1,340 @@
 [
-    {
-      "name": "background-color",
-      "value_options": "color",
-      "type": "color"
-    },
-    {
-      "name": "color",
-      "value_options": "color",
-      "type": "color"
-    },
-    {
-      "name": "font-family",
-      "value_options": "font-family",
-      "type": "text"
-    },
-    {
-      "name": "font-size",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "font-weight",
-      "value_options": [
-        "normal",
-        "bold",
-        "bolder",
-        "lighter",
-        "100",
-        "200",
-        "300",
-        "400",
-        "500",
-        "600",
-        "700",
-        "800",
-        "900"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "text-align",
-      "value_options": [
-        "left",
-        "right",
-        "center",
-        "justify"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "text-decoration",
-      "value_options": [
-        "none",
-        "underline",
-        "overline",
-        "line-through"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "text-transform",
-      "value_options": [
-        "none",
-        "capitalize",
-        "uppercase",
-        "lowercase"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "width",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "height",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "display",
-      "value_options": [
-        "none",
-        "block",
-        "inline",
-        "inline-block",
-        "flex"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "justify-content",
-      "value_options": [
-        "center",
-        "space-between",
-        "space-around",
-        "flex-start",
-        "flex-end"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "flex-direction",
-      "value_options": [
-        "row",
-        "column",
-        "reverse-row",
-        "reverse-column"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "align-content",
-      "value_options": [
-        "center",
-        "space-between",
-        "space-around",
-        "flex-start",
-        "flex-end"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "align-items",
-      "value_options": [
-        "center",
-        "stretch",
-        "baseline",
-        "space-around",
-        "flex-start",
-        "flex-end"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "float",
-      "value_options": [
-        "left",
-        "right",
-        "none"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "position",
-      "value_options": [
-        "static",
-        "relative",
-        "absolute",
-        "fixed"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "top",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "bottom",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "left",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "right",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "border",
-      "value_options": [
-        "none",
-        "hidden",
-        "dotted",
-        "dashed",
-        "solid",
-        "double",
-        "groove",
-        "ridge",
-        "inset",
-        "outset"
-      ],
-      "type": "text"
-    },
-    {
-      "name": "border-radius",
-      "value_options": "size",
-      "type": "text"
-    },
-    {
-      "name": "border-color",
-      "value_options": "color",
-      "type": "color"
-    },
-    {
-        "name": "border-width",
-        "value_options": "size",
-        "type": "text"
-      },
-      {
-        "name": "margin",
-        "value_options": "size",
-        "type": "text"
-      },
-      {
-        "name": "padding",
-        "value_options": "size",
-        "type": "text"
-      },
-      {
-        "name": "opacity",
-        "value_options": [
-          "0",
-          "0.1",
-          "0.2",
-          "0.3",
-          "0.4",
-          "0.5",
-          "0.6",
-          "0.7",
-          "0.8",
-          "0.9",
-          "1"
-        ],
-        "type": "text"
-      },
-      {
-        "name": "overflow",
-        "value_options": [
-          "visible",
-          "hidden",
-          "scroll",
-          "auto"
-        ],
-        "type": "text"
-      },
-      {
-        "name": "z-index",
-        "value_options": "number",
-        "type": "number"
-      },
-      {
-        "name": "box-shadow",
-        "value_options": [
-          "none",
-          "h-shadow v-shadow blur spread color",
-          "inset h-shadow v-shadow blur spread color"
-        ],
-        "type": "text"
-      },
-      {
-        "name": "text-shadow",
-        "value_options": [
-          "none",
-          "h-shadow v-shadow blur color"
-        ],
-        "type": "text"
-      },
-      {
-        "name": "line-height",
-        "value_options": "number",
-        "type": "number"
-      },
-      {
-        "name": "vertical-align",
-        "value_options": [
-          "baseline",
-          "top",
-          "middle",
-          "bottom"
-        ],
-        "type": "text"
-      },
-      {
-        "name": "cursor",
-        "value_options": [
-          "auto",
-          "default",
-          "pointer",
-          "text",
-          "move",
-          "not-allowed",
-          "crosshair"
-        ],
-        "type": "text"
-      }
+  {
+    "name": "background-color",
+    "value_options": "color",
+    "type": "color"
+  },
+  {
+    "name": "color",
+    "value_options": "color",
+    "type": "color"
+  },
+  {
+    "name": "font-family",
+    "value_options": "font-family",
+    "type": "text"
+  },
+  {
+    "name": "font-size",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "font-weight",
+    "value_options": [
+      "normal",
+      "bold",
+      "bolder",
+      "lighter",
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "text-align",
+    "value_options": [
+      "left",
+      "right",
+      "center",
+      "justify"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "text-decoration",
+    "value_options": [
+      "none",
+      "underline",
+      "overline",
+      "line-through"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "text-transform",
+    "value_options": [
+      "none",
+      "capitalize",
+      "uppercase",
+      "lowercase"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "width",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "height",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "display",
+    "value_options": [
+      "none",
+      "block",
+      "inline",
+      "inline-block",
+      "flex"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "justify-content",
+    "value_options": [
+      "center",
+      "space-between",
+      "space-around",
+      "flex-start",
+      "flex-end"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "flex-direction",
+    "value_options": [
+      "row",
+      "column",
+      "reverse-row",
+      "reverse-column"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "align-content",
+    "value_options": [
+      "center",
+      "space-between",
+      "space-around",
+      "flex-start",
+      "flex-end"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "align-items",
+    "value_options": [
+      "center",
+      "stretch",
+      "baseline",
+      "space-around",
+      "flex-start",
+      "flex-end"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "float",
+    "value_options": [
+      "left",
+      "right",
+      "none"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "position",
+    "value_options": [
+      "static",
+      "relative",
+      "absolute",
+      "fixed"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "top",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "bottom",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "left",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "right",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "border",
+    "value_options": [
+      "none",
+      "hidden",
+      "dotted",
+      "dashed",
+      "solid",
+      "double",
+      "groove",
+      "ridge",
+      "inset",
+      "outset"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "border-radius",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "border-color",
+    "value_options": "color",
+    "type": "color"
+  },
+  {
+    "name": "border-width",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "margin",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "padding",
+    "value_options": "size",
+    "type": "text"
+  },
+  {
+    "name": "opacity",
+    "value_options": [
+      "0",
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.5",
+      "0.6",
+      "0.7",
+      "0.8",
+      "0.9",
+      "1"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "overflow",
+    "value_options": [
+      "visible",
+      "hidden",
+      "scroll",
+      "auto"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "z-index",
+    "value_options": "number",
+    "type": "number"
+  },
+  {
+    "name": "box-shadow",
+    "value_options": [
+      "none",
+      "h-shadow v-shadow blur spread color",
+      "inset h-shadow v-shadow blur spread color"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "text-shadow",
+    "value_options": [
+      "none",
+      "h-shadow v-shadow blur color"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "line-height",
+    "value_options": "number",
+    "type": "number"
+  },
+  {
+    "name": "vertical-align",
+    "value_options": [
+      "baseline",
+      "top",
+      "middle",
+      "bottom"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "cursor",
+    "value_options": [
+      "auto",
+      "default",
+      "pointer",
+      "text",
+      "move",
+      "not-allowed",
+      "crosshair"
+    ],
+    "type": "text"
+  },
+  {
+    "name": "border-style",
+    "value_options": [
+      "none",
+      "dotted",
+      "dashed",
+      "solid",
+      "double",
+      "groove",
+      "ridge",
+      "inset",
+      "outset",
+      "inherit"
+    ]
+  },
+  {
+    "name": "letter-spacing",
+    "value_options": "text"
+  },
+  {
+    "name": "min-height",
+    "value_options": "text"
+  },
+  {
+    "name": "max-height",
+    "value_options": "text"
+  },
+  {
+    "name": "max-width",
+    "value_options": "text"
+  },
+  {
+    "name": "min-width",
+    "value_options": "text"
+  },
+  {
+    "name": "word-spacing",
+    "value_options": "text"
+  },
+  {
+    "name": "table-display",
+    "value_options": [
+      "fixed",
+      "auto",
+      "inherit"
+    ]
+  }
 ]

@@ -31,12 +31,6 @@
     ]
   },
   {
-    "name": "autofocus",
-    "value_options": [
-      "autofocus"
-    ]
-  },
-  {
     "name": "background",
     "value_options": "text"
   },
@@ -124,12 +118,6 @@
   {
     "name": "dirname",
     "value_options": "text"
-  },
-  {
-    "name": "disabled",
-    "value_options": [
-      "disabled"
-    ]
   },
   {
     "name": "download",
@@ -320,6 +308,71 @@
   {
     "name": "onclick",
     "value_options": "text"
+  },
+  {
+    "name": "title",
+    "value_options": "text"
+  },
+  {
+    "name": "target",
+    "value_options": [
+      "_blank",
+      "_self",
+      "_parent",
+      "_top"
+    ]
+  },
+  {
+    "name": "rel",
+    "value_options": [
+      "alternate",
+      "author",
+      "bookmark",
+      "external",
+      "help",
+      "license",
+      "next",
+      "nofollow",
+      "noreferrer",
+      "noopener",
+      "prev",
+      "search",
+      "tag"
+    ]
+  },
+  {
+    "name": "disabled",
+    "value_options": [
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "readonly",
+    "value_options": [
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "required",
+    "value_options": [
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "selected",
+    "value_options": [
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "autofocus",
+    "value_options": [
+      "false",
+      "true"
+    ]
   }
 ]
- 
