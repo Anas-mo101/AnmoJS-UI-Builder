@@ -1,0 +1,325 @@
+[
+  {
+    "name": "accept",
+    "value_options": "text"
+  },
+  {
+    "name": "accept-charset",
+    "value_options": "text"
+  },
+  {
+    "name": "src",
+    "value_options": "text"
+  },
+  {
+    "name": "accesskey",
+    "value_options": "text"
+  },
+  {
+    "name": "action",
+    "value_options": "text"
+  },
+  {
+    "name": "alt",
+    "value_options": "text"
+  },
+  {
+    "name": "autocomplete",
+    "value_options": [
+      "on",
+      "off"
+    ]
+  },
+  {
+    "name": "autofocus",
+    "value_options": [
+      "autofocus"
+    ]
+  },
+  {
+    "name": "background",
+    "value_options": "text"
+  },
+  {
+    "name": "cellpadding",
+    "value_options": "number"
+  },
+  {
+    "name": "cellspacing",
+    "value_options": "number"
+  },
+  {
+    "name": "charset",
+    "value_options": "text"
+  },
+  {
+    "name": "checked",
+    "value_options": [
+      "checked"
+    ]
+  },
+  {
+    "name": "cite",
+    "value_options": "text"
+  },
+  {
+    "name": "class",
+    "value_options": "text"
+  },
+  {
+    "name": "color",
+    "value_options": "color"
+  },
+  {
+    "name": "cols",
+    "value_options": "number"
+  },
+  {
+    "name": "colspan",
+    "value_options": "number"
+  },
+  {
+    "name": "content",
+    "value_options": "text"
+  },
+  {
+    "name": "contenteditable",
+    "value_options": [
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "coords",
+    "value_options": "text"
+  },
+  {
+    "name": "data",
+    "value_options": "text"
+  },
+  {
+    "name": "datetime",
+    "value_options": "text"
+  },
+  {
+    "name": "default",
+    "value_options": [
+      "default"
+    ]
+  },
+  {
+    "name": "defer",
+    "value_options": [
+      "defer"
+    ]
+  },
+  {
+    "name": "dir",
+    "value_options": [
+      "ltr",
+      "rtl",
+      "auto"
+    ]
+  },
+  {
+    "name": "dirname",
+    "value_options": "text"
+  },
+  {
+    "name": "disabled",
+    "value_options": [
+      "disabled"
+    ]
+  },
+  {
+    "name": "download",
+    "value_options": "text"
+  },
+  {
+    "name": "draggable",
+    "value_options": [
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "dropzone",
+    "value_options": [
+      "copy",
+      "move",
+      "link"
+    ]
+  },
+  {
+    "name": "enctype",
+    "value_options": [
+      "application/x-www-form-urlencoded",
+      "multipart/form-data",
+      "text/plain"
+    ]
+  },
+  {
+    "name": "for",
+    "value_options": "text"
+  },
+  {
+    "name": "form",
+    "value_options": "text"
+  },
+  {
+    "name": "formaction",
+    "value_options": "text"
+  },
+  {
+    "name": "headers",
+    "value_options": "text"
+  },
+  {
+    "name": "height",
+    "value_options": "number"
+  },
+  {
+    "name": "hidden",
+    "value_options": [
+      "hidden"
+    ]
+  },
+  {
+    "name": "high",
+    "value_options": "number"
+  },
+  {
+    "name": "href",
+    "value_options": "text"
+  },
+  {
+    "name": "hreflang",
+    "value_options": "text"
+  },
+  {
+    "name": "http-equiv",
+    "value_options": "text"
+  },
+  {
+    "name": "ismap",
+    "value_options": [
+      "ismap"
+    ]
+  },
+  {
+    "name": "itemprop",
+    "value_options": "text"
+  },
+  {
+    "name": "keytype",
+    "value_options": "text"
+  },
+  {
+    "name": "kind",
+    "value_options": "text"
+  },
+  {
+    "name": "label",
+    "value_options": "text"
+  },
+  {
+    "name": "lang",
+    "value_options": "text"
+  },
+  {
+    "name": "list",
+    "value_options": "text"
+  },
+  {
+    "name": "loop",
+    "value_options": [
+      "loop"
+    ]
+  },
+  {
+    "name": "low",
+    "value_options": "number"
+  },
+  {
+    "name": "manifest",
+    "value_options": "text"
+  },
+  {
+    "name": "max",
+    "value_options": "number"
+  },
+  {
+    "name": "maxlength",
+    "value_options": "number"
+  },
+  {
+    "name": "media",
+    "value_options": "text"
+  },
+  {
+    "name": "method",
+    "value_options": [
+      "get",
+      "post"
+    ]
+  },
+  {
+    "name": "min",
+    "value_options": "number"
+  },
+  {
+    "name": "multiple",
+    "value_options": [
+      "multiple"
+    ]
+  },
+  {
+    "name": "muted",
+    "value_options": [
+      "muted"
+    ]
+  },
+  {
+    "name": "name",
+    "value_options": "text"
+  },
+  {
+    "name": "novalidate",
+    "value_options": [
+      "novalidate"
+    ]
+  },
+  {
+    "name": "onabort",
+    "value_options": "text"
+  },
+  {
+    "name": "onafterprint",
+    "value_options": "text"
+  },
+  {
+    "name": "onbeforeprint",
+    "value_options": "text"
+  },
+  {
+    "name": "onbeforeunload",
+    "value_options": "text"
+  },
+  {
+    "name": "onblur",
+    "value_options": "text"
+  },
+  {
+    "name": "oncanplay",
+    "value_options": "text"
+  },
+  {
+    "name": "oncanplaythrough",
+    "value_options": "text"
+  },
+  {
+    "name": "onclick",
+    "value_options": "text"
+  }
+]
+ 

@@ -1,18 +1,19 @@
 import Dragables from "./Dragables.js";
 import PanelSidebar from "./PanelSidebar.js";
-import DragablesInfo from "../assets/dragables.json" assert {type: 'json'}
+import DragablesInfo from "../assets/dragables.json" assert {type: 'json'};
+import AttributePanel from "./AttributePanel.js";
 
 
 export default class extends Anmo.AbstractView { 
     constructor() {
         super();
      
-        this.flag = true;
-        this.panelTitle = '';
+        this.flag = 0;
+        this.eid = '';
 
         document.addEventListener("showComponentToolSet", (e) => {
-            this.flag = false;
-            this.panelTitle = e.detail.id;
+            this.flag = 1;
+            this.eid = e.detail.id;
             this.update();
         });
     }
@@ -65,7 +66,7 @@ export default class extends Anmo.AbstractView {
                             Anmo.BuildElement({
                                 tag: "button",
                                 onTap: () => {
-                                    this.flag = true;
+                                    this.flag = 0;
                                     this.update();
                                 },
                                 style: {
@@ -80,15 +81,43 @@ export default class extends Anmo.AbstractView {
                                 },
                                 content: 'x'
                             }),
+                            Anmo.BuildElement({
+                                tag: "button",
+                                onTap: () => {
+                                    this.flag = 2;
+                                    this.update();
+                                },
+                                style: {
+                                    width: '25px',
+                                    height: '25px',
+                                    'border-radius': '10px',
+                                    display: 'flex',
+                                    'align-items': 'center',
+                                    'justify-content': 'center',
+                                    background: 'white',
+                                    cursor: 'pointer'
+                                },
+                                content: 'e'
+                            }),
                         ]
                     }),
-                    new PanelSidebar(this.panelTitle).getComponentHTML()
+                    this.flag == 1 ? new PanelSidebar(this.eid).getComponentHTML() : 
+                        new AttributePanel(this.eid).getComponentHTML()
                 ]
             });
 
 
 
-            return this.flag ? draggablesList : panelSidebar;
+            switch (this.flag) {
+                case 0:
+                    return draggablesList;
+                case 1:
+                case 2:
+                    return panelSidebar;
+                default:
+                    return draggablesList;
+            }
+
         } catch (error) {
             return this.componentError(error);
         }

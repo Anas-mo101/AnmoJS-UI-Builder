@@ -22,6 +22,13 @@ export default class extends Anmo.AbstractView {
             setTimeout(() => this.init(), 500);
             this.update();
         });
+
+        document.addEventListener("updateAttsDrawingPanel", (e) => {
+            const {id, prop, value } = e.detail;
+            this.drawing = this.bfsSearchAndUpdateAtts(this.drawing, id, prop, value);
+            setTimeout(() => this.init(), 500);
+            this.update();
+        });
     }
 
 
@@ -34,6 +41,41 @@ export default class extends Anmo.AbstractView {
 
         board.addEventListener('dragover', (ev) => ev.preventDefault());
         board.addEventListener('drop', async (ev) => this.handleDrop(ev));
+    }
+
+    bfsSearchAndUpdateAtts(arr, id, prop, value) {
+        let queue = [...arr];
+        
+        while (queue.length) {
+            const curr = queue.shift();
+            if (curr.id === id) {
+
+                if(curr?.attributes){
+                    curr.attributes.forEach(a => {
+                        if(a.attribute == prop){
+                            a.value = value;
+                        }
+                    });
+                }else{
+                    curr.attributes = [ {attribute: prop, value: value} ] 
+                }
+               
+
+                return arr;
+            }
+            if (typeof curr === 'object' && curr !== null) {
+                if(curr?.content != null){
+                    if(Array.isArray(curr.content)){
+                        queue.push(...curr.content)
+                    }else{
+                        queue.push(curr.content);
+                    }
+                }
+            }
+        }
+        
+        // If the id wasn't found, return the original array.
+        return arr;
     }
 
     bfsSearchAndUpdateCSS(arr, id, prop, value) {
@@ -118,6 +160,10 @@ export default class extends Anmo.AbstractView {
     draw(drawing){
         let sections = [];
 
+        if(typeof drawing === 'string' || drawing instanceof String){
+            return drawing;
+        }
+
         if(Array.isArray(drawing)){
             for (let index = 0; index < drawing.length; index++) {
                 const element = drawing[index];
@@ -128,7 +174,6 @@ export default class extends Anmo.AbstractView {
                     content: compcontent,
                     onTap: (e) => {
                         e.stopPropagation();
-                        console.log('test', element.id)
                         document.dispatchEvent(new CustomEvent('showComponentToolSet', {detail: { id: element.id }} ));
                     },
                     onContextMenu: async (e) => {
@@ -162,7 +207,6 @@ export default class extends Anmo.AbstractView {
                 content: compcontent,
                 onTap: (e) => {
                     e.stopPropagation();
-                    console.log('test', drawing.id)
                     document.dispatchEvent(new CustomEvent('showComponentToolSet', { 
                         detail: { 
                             id: drawing.id
@@ -173,7 +217,6 @@ export default class extends Anmo.AbstractView {
                     e.preventDefault();
                     e.stopPropagation();
                     const response = await contextMenu(e.clientX, e.clientY);
-                    console.log(response);
                     
                     if(response === 'DELETE'){
                         this.drawing = dfsSearchAndDelete(this.drawing, drawing.id);

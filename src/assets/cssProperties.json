@@ -90,6 +90,50 @@
       "type": "text"
     },
     {
+      "name": "justify-content",
+      "value_options": [
+        "center",
+        "space-between",
+        "space-around",
+        "flex-start",
+        "flex-end"
+      ],
+      "type": "text"
+    },
+    {
+      "name": "flex-direction",
+      "value_options": [
+        "row",
+        "column",
+        "reverse-row",
+        "reverse-column"
+      ],
+      "type": "text"
+    },
+    {
+      "name": "align-content",
+      "value_options": [
+        "center",
+        "space-between",
+        "space-around",
+        "flex-start",
+        "flex-end"
+      ],
+      "type": "text"
+    },
+    {
+      "name": "align-items",
+      "value_options": [
+        "center",
+        "stretch",
+        "baseline",
+        "space-around",
+        "flex-start",
+        "flex-end"
+      ],
+      "type": "text"
+    },
+    {
       "name": "float",
       "value_options": [
         "left",
