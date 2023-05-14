@@ -1,31 +1,32 @@
 import contextMenu from "./ContextMenu.js"
-import { bfsSearchAndDelete, dfsSearchAndDelete } from "../utils/DrawingUtils.js"
+
+import DrawingDS from "../utils/DrawingDS.js";
 
 export default class extends Anmo.AbstractView { 
     constructor() {
         super();
 
-        this.drawing = [];
-        setTimeout(() => this.init(), 1000);
+        this.drawingDS = new DrawingDS();
 
+        setTimeout(() => this.init(), 1000);
 
         document.addEventListener("getDrawingLayout", (e) => {
             Anmo.AppLocalStorage.TemporaryData({
                 key: 'UIBuilderDrawingLayout', 
-                value: this.drawing
+                value: this.drawingDS.getDrawing()
             });
         });
 
         document.addEventListener("updateCSSDrawingPanel", (e) => {
             const {id, prop, value } = e.detail;
-            this.drawing = this.bfsSearchAndUpdateCSS(this.drawing, id, prop, value);
+            this.drawingDS.UpdateCSS(id, prop, value);
             setTimeout(() => this.init(), 500);
             this.update();
         });
 
         document.addEventListener("updateAttsDrawingPanel", (e) => {
             const {id, prop, value } = e.detail;
-            this.drawing = this.bfsSearchAndUpdateAtts(this.drawing, id, prop, value);
+            this.drawingDS.UpdateAtts(id, prop, value);
             setTimeout(() => this.init(), 500);
             this.update();
         });
@@ -43,96 +44,6 @@ export default class extends Anmo.AbstractView {
         board.addEventListener('drop', async (ev) => this.handleDrop(ev));
     }
 
-    bfsSearchAndUpdateAtts(arr, id, prop, value) {
-        let queue = [...arr];
-        
-        while (queue.length) {
-            const curr = queue.shift();
-            if (curr.id === id) {
-
-                if(curr?.attributes){
-                    curr.attributes.forEach(a => {
-                        if(a.attribute == prop){
-                            a.value = value;
-                        }
-                    });
-                }else{
-                    curr.attributes = [ {attribute: prop, value: value} ] 
-                }
-               
-
-                return arr;
-            }
-            if (typeof curr === 'object' && curr !== null) {
-                if(curr?.content != null){
-                    if(Array.isArray(curr.content)){
-                        queue.push(...curr.content)
-                    }else{
-                        queue.push(curr.content);
-                    }
-                }
-            }
-        }
-        
-        // If the id wasn't found, return the original array.
-        return arr;
-    }
-
-    bfsSearchAndUpdateCSS(arr, id, prop, value) {
-        let queue = [...arr];
-        
-        while (queue.length) {
-            const curr = queue.shift();
-            if (curr.id === id) {
-                curr.style[prop] = value;
-                return arr;
-            }
-            if (typeof curr === 'object' && curr !== null) {
-                if(curr?.content != null){
-                    if(Array.isArray(curr.content)){
-                        queue.push(...curr.content)
-                    }else{
-                        queue.push(curr.content);
-                    }
-                }
-            }
-        }
-        
-        // If the id wasn't found, return the original array.
-        return arr;
-    }
-
-
-    bfsSearchAndUpdateContent(arr, id, content) {
-        let queue = [...arr];
-        
-        while (queue.length) {
-            const curr = queue.shift();
-            if (curr.id === id) {
-                if(curr.content == null){
-                    curr.content = content;
-                }else if(Array.isArray(curr.content)){
-                    curr.content.push(content)
-                }else if(typeof curr.content === 'object'){
-                    curr.content = [ curr.content , content];
-                }
-                return arr;
-            }
-            if (typeof curr === 'object' && curr !== null) {
-                if(curr?.content != null){
-                    if(Array.isArray(curr.content)){
-                        queue.push(...curr.content)
-                    }else{
-                        queue.push(curr.content);
-                    }
-                }
-            }
-        }
-        
-        // If the id wasn't found, return the original array.
-        return arr;
-    }
-    
 
     handleDrop(ev, id = false){
         ev.preventDefault();
@@ -147,9 +58,9 @@ export default class extends Anmo.AbstractView {
         const newcomponent = JSON.parse(dropedItem.dataset.component);
 
         if(!id){
-            this.drawing.push({id: newid, ...newcomponent});
+            this.drawingDS.append({id: newid, ...newcomponent});
         }else{
-            this.drawing = this.bfsSearchAndUpdateContent(this.drawing, id, {id: newid, ...newcomponent})
+            this.drawingDS.UpdateContent(id, {id: newid, ...newcomponent});
         }
 
         setTimeout(() => this.init(), 500);
@@ -182,7 +93,7 @@ export default class extends Anmo.AbstractView {
                         const response = await contextMenu(e.clientX, e.clientY);
                         
                         if(response === 'DELETE'){
-                            this.drawing = dfsSearchAndDelete(this.drawing, element.id);
+                            this.drawingDS.delete(element.id);
                             setTimeout(() => this.init(), 500);
                             this.update();
                         }
@@ -215,9 +126,8 @@ export default class extends Anmo.AbstractView {
                     e.preventDefault();
                     e.stopPropagation();
                     const response = await contextMenu(e.clientX, e.clientY);
-                    
                     if(response === 'DELETE'){
-                        this.drawing = dfsSearchAndDelete(this.drawing, drawing.id);
+                        this.drawingDS.delete(drawing.id);
                         setTimeout(() => this.init(), 500);
                         this.update();
                     }
@@ -225,7 +135,6 @@ export default class extends Anmo.AbstractView {
             });
 
             if(true){ // for componets that can have children
-                comp.addEventListener('dragover', (ev) => ev.preventDefault());
                 comp.addEventListener('drop', async (ev) => this.handleDrop(ev, drawing.id) );
             }
 
@@ -248,10 +157,10 @@ export default class extends Anmo.AbstractView {
                     'overflow-y': 'auto',
                 },
                 attributes: [
-                    {attribute: 'class', value: this.drawing.length > 0 ? '' : 'drawing-panel-cover' }
+                    {attribute: 'class', value: this.drawingDS.isEmpty() ? '' : 'drawing-panel-cover' }
                 ],
                 content: [
-                    ...this.draw(this.drawing)
+                    ...this.draw(this.drawingDS.getDrawing())
                 ]
             });
         } catch (error) {
